@@ -1,0 +1,13 @@
+.container {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.table-wrapper-2 {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}

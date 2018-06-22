@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="input-group">
+    <input type="text" [(ngModel)]="code" class="form-control" placeholder="Reedem Code" 
+      aria-label="Reedem Code">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="reedemCode()" type="button">Reedem</button>
+    </div>
+  </div>
+  <br/><br/>
+  <div *ngIf="listKeys && listKeys.length > 0">
+      <button class="btn btn-outline-secondary" (click)="toCsv()" type="button">Download CSV</button>
+      <br/>
+      <div  class="table-wrapper-2">
+          <table class="table" style="background-color: white">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Key</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listKeys">
+                  <td>{{item.name}}</td>
+                  <td>{{item.key}}</td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+  </div>
+</div>
