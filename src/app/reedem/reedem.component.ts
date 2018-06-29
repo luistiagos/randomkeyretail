@@ -11,6 +11,7 @@ import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 export class ReedemComponent implements OnInit {
 
   code:string;
+  msg:string;
   listKeys:GameKey[];
 
   constructor(private service:KeysService) { }
@@ -19,6 +20,8 @@ export class ReedemComponent implements OnInit {
   }
 
   reedemCode(): void {
+    this.listKeys = [];
+    this.msg = undefined;
     if (!this.code) {
       return;
     }
@@ -28,6 +31,9 @@ export class ReedemComponent implements OnInit {
           this.listKeys = data[0].keys.map((item)=>{
             return this.parseKey(item);
           });
+        }
+        else {
+          this.msg = "Invalid Code.";
         }
     });
   }
