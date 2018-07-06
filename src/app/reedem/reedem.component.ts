@@ -38,6 +38,17 @@ export class ReedemComponent implements OnInit {
     });
   }
 
+  getUserCurrency() {
+    let language:string = undefined;
+    if (navigator.languages != undefined) {
+      language = navigator.languages[0].trim();
+    } 
+    else {
+      language = navigator.language.trim();
+    } 
+    return (language.indexOf('BR') > -1)?'BRL':'USD';
+  }
+
   parseKey(value:string):GameKey {
     let regex = value.search(/[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}/g)
     let desc = value.substr(0,regex).trim();
