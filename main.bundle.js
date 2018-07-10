@@ -122,7 +122,7 @@ var Settings = /** @class */ (function () {
     }
     Object.defineProperty(Settings, "API_KEY", {
         get: function () {
-            return 'tqiAxDRIsNok9xYG0ldq0B6RD1b9tUJw';
+            return 'j7xm963vICVfSSop9KrwWraF8fMMf9_w';
         },
         enumerable: true,
         configurable: true
@@ -234,6 +234,16 @@ var ReedemComponent = /** @class */ (function () {
                 _this.msg = "Invalid Code.";
             }
         });
+    };
+    ReedemComponent.prototype.getUserCurrency = function () {
+        var language = undefined;
+        if (navigator.languages != undefined) {
+            language = navigator.languages[0].trim();
+        }
+        else {
+            language = navigator.language.trim();
+        }
+        return (language.indexOf('BR') > -1) ? 'BRL' : 'USD';
     };
     ReedemComponent.prototype.parseKey = function (value) {
         var regex = value.search(/[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}/g);
